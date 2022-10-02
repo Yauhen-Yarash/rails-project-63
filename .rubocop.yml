@@ -4,4 +4,4 @@ AllCops:
   NewCops: disable
   Include:
     - lib/**/*.rb
-    - test/**/*.rb
+    - spec/**/*.rb
