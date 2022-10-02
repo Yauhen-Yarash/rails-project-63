@@ -1,4 +1,4 @@
-name: Rubocop
+name: Rubocop Check
 
 on:
   push:
@@ -11,11 +11,8 @@ jobs:
   rubocop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - name: Run rubocop
-        run: |
-          bundle exec rubocop
+    - uses: actions/checkout@v1
+    - name: Rubocop checks
+      uses: luizfonseca/github-actions-rubocop@1.5.6
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
