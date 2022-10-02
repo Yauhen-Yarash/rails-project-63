@@ -1,27 +1,32 @@
-module HexletCode::Tag
-  extend self
+# frozen_string_literal: true
 
-  TAGS = %w[br img input].freeze
+module HexletCode
+  # High level comment
+  module Tag
+    module_function
 
-  def build(tag_name, **args)
-    if TAGS.include?(tag_name)
-      args.empty? ?
-        public_send(tag_name) :
+    TAGS = %w[br img input].freeze
+
+    def build(tag_name, **args)
+      raise('Not supported tag') unless TAGS.include?(tag_name)
+
+      if args.empty?
+        public_send(tag_name)
+      else
         public_send(tag_name, **args)
-    else
-      raise('Not supported tag')
+      end
     end
-  end
 
-  def br
-    '<br>'
-  end
+    def br
+      '<br>'
+    end
 
-  def img(src:)
-    "<img src='#{src}'>"
-  end
+    def img(src:)
+      "<img src='#{src}'>"
+    end
 
-  def input(type:, value:)
-    "<input type='#{type}' value='#{value}'>"
+    def input(type:, value:)
+      "<input type='#{type}' value='#{value}'>"
+    end
   end
 end

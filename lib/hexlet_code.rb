@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'hexlet_code/version'
 require 'hexlet_code/tag'
 
