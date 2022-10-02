@@ -5,3 +5,6 @@ AllCops:
   Include:
     - lib/**/*.rb
     - spec/**/*.rb
+
+Style/Documentation:
+  Enabled: false
