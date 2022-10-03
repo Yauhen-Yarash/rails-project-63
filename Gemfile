@@ -10,3 +10,5 @@ gem 'rake', '~> 12.0'
 gem 'rubocop', '~> 1.36'
 
 gem "rspec", "~> 3.11"
+
+gem "pry", "~> 0.14.1"

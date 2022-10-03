@@ -2,12 +2,17 @@
 
 require 'hexlet_code/version'
 require 'hexlet_code/tag'
+require 'hexlet_code/form_builder'
 
 module HexletCode
   module_function
 
-  def form_for(_object, url: '#', method: 'post')
-    "<form action='#{url}' method='#{method}'></form>"
+  def form_for(form_object, url: '#', method: 'post')
+    return "<form action='#{url}' method='#{method}'></form>" unless block_given?
+
+    builder = FormBuilder.new(form_object)
+    yield(builder)
+    "<form action='#{url}' method='#{method}'>#{builder.result.join}</form>"
   end
 
   class Error < StandardError; end
