@@ -23,17 +23,22 @@ describe 'HexletCode' do
         f.input :name
         f.input :job, as: :text
         f.input :job, as: :text, rows: 50, cols: 50
+        f.submit
+        f.submit 'Wow'
       end
+
       expect(result_1).to eql(
         "<form action='#' method='post'>"\
-           "<input name='name' type='text' value='rob'>"\
-           "<textarea name='job' cols='20' rows='40'>hexlet</textarea>"\
-           "<textarea name='job' cols='50' rows='50'>hexlet</textarea>"\
-         "</form>"
+          "<label for='name'>rob</label>"\
+          "<input name='name' type='text' value='rob'>"\
+          "<label for='job'>hexlet</label>"\
+          "<textarea name='job' cols='20' rows='40'>hexlet</textarea>"\
+          "<label for='job'>hexlet</label>"\
+          "<textarea name='job' cols='50' rows='50'>hexlet</textarea>"\
+          "<input name='commit' type='submit' value=''>"\
+          "<input name='commit' type='submit' value='Wow'>"\
+        "</form>"
       )
-
-
-
     end
   end
 end

@@ -4,7 +4,7 @@ module HexletCode
   module Tag
     module_function
 
-    TAGS = %w[br img div input textarea].freeze
+    TAGS = %w[br img div label input textarea submit].freeze
 
     def build(tag_name, field_name = nil, **params)
       raise('Not supported tag') unless TAGS.include?(tag_name)
@@ -28,16 +28,26 @@ module HexletCode
       "<div>#{block_given? ? yield : value}</div>"
     end
 
-    def input(name = nil, type: 'text', value: '', as: 'input', **params)
+    def label(for_field: nil, value: nil)
+      "<label for='#{for_field}'>#{value || for_field.to_s.capitilize}</label>"
+    end
+
+    def input(name = nil, type: 'text', value: nil, as: 'input', label: nil, **params)
       if as.to_s == 'input'
-        "<input name='#{name}' type='#{type}' value='#{value}'>"
+        label(for_field: name, value: value) +
+          "<input name='#{name}' type='#{type}' value='#{value}'>"
       elsif as.to_s == 'text'
-        textarea(name, value: value, **params)
+        textarea(name, value: value, label: label, **params)
       end
     end
 
-    def textarea(name = nil, cols: 20, rows: 40, value: '')
-      "<textarea name='#{name}' cols='#{cols}' rows='#{rows}'>#{block_given? ? yield : value}</textarea>"
+    def textarea(name = nil, cols: 20, rows: 40, value: nil, label: nil)
+      label(for_field: name, value: value) +
+        "<textarea name='#{name}' cols='#{cols}' rows='#{rows}'>#{block_given? ? yield : value}</textarea>"
+    end
+
+    def submit(value = 'Save')
+      "<input name='commit' type='submit' value='#{value}'>"
     end
   end
 end
