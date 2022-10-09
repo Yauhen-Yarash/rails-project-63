@@ -50,7 +50,9 @@ GEM
     unicode-display_width (2.3.0)
 
 PLATFORMS
+  ruby
   x64-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   hexlet_code!
