@@ -29,19 +29,20 @@ module HexletCode
     end
 
     def label(for_field: nil, value: nil)
-      "<label for='#{for_field}'>#{value || for_field.to_s.capitilize}</label>"
+      "<label for='#{for_field}'>#{value || for_field.to_s.capitalize}</label>"
     end
 
-    def input(name = nil, type: 'text', value: nil, as: 'input', label: nil, **params)
-      if as.to_s == 'input'
+    def input(name = nil, type: 'text', value: nil, as: 'input', **params)
+      case as.to_s
+      when 'input'
         label(for_field: name, value: value) +
           "<input name='#{name}' type='#{type}' value='#{value}'>"
-      elsif as.to_s == 'text'
-        textarea(name, value: value, label: label, **params)
+      when 'text'
+        textarea(name, value: value, **params)
       end
     end
 
-    def textarea(name = nil, cols: 20, rows: 40, value: nil, label: nil)
+    def textarea(name = nil, cols: 20, rows: 40, value: nil)
       label(for_field: name, value: value) +
         "<textarea name='#{name}' cols='#{cols}' rows='#{rows}'>#{block_given? ? yield : value}</textarea>"
     end
