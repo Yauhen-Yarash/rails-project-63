@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# Comment for this module
 module HexletCode
+  # Comment for this module
   module Tag
     module_function
 

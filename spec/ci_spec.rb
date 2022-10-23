@@ -4,6 +4,7 @@ require 'spec_helper'
 
 User = Struct.new(:name, :job, keyword_init: true)
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe HexletCode do
   it 'new' do
     user = User.new name: 'rob'
@@ -48,9 +49,11 @@ RSpec.describe HexletCode do
   it 'form options' do
     user = User.new name: 'rob'
 
+    # rubocop:disable Style/SymbolProc
     actual = HexletCode.form_for user do |f|
       f.submit
     end
+    # rubocop:enable Style/SymbolProc
 
     expected_matcher = have_tag('form') do
       with_tag 'form', with: { action: '#', method: 'post' }
@@ -72,3 +75,4 @@ RSpec.describe HexletCode do
     expect(actual).to raise_error NoMethodError
   end
 end
+# rubocop:enable Metrics/BlockLength

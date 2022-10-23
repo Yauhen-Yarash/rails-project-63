@@ -4,6 +4,7 @@ require 'hexlet_code/version'
 require 'hexlet_code/tag'
 require 'hexlet_code/form_builder'
 
+# Comment for this module
 module HexletCode
   module_function
 

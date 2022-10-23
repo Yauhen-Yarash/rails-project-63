@@ -2,6 +2,7 @@
 
 require 'hexlet_code'
 
+# rubocop:disable Metrics/BlockLength
 describe 'HexletCode' do
   # rubocop:disable Lint/ConstantDefinitionInBlock
   User = Struct.new(:name, :job, :gender, keyword_init: true)
@@ -48,3 +49,4 @@ describe 'HexletCode' do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
