@@ -6,7 +6,7 @@ module HexletCode
 
     Tag::TAGS.each do |tag|
       define_method(tag) do |field_name = nil, **params|
-        params[:value] = @form_object.public_send(field_name) if field_name && @form_object.respond_to?(field_name)
+        params[:value] = @form_object.public_send(field_name) if field_name
 
         @result << Tag.build(tag, field_name, **params)
       end
@@ -17,7 +17,7 @@ module HexletCode
       @result = []
     end
 
-    def submit(value = '')
+    def submit(value = 'Save')
       @result << Tag.submit(value)
     end
   end

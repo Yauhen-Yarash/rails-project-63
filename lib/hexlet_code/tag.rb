@@ -35,8 +35,9 @@ module HexletCode
     def input(name = nil, type: 'text', value: nil, as: 'input', **params)
       case as.to_s
       when 'input'
+        input_class = params[:class] ? " class='#{params[:class]}'" : ''
         label(for_field: name, value: value) +
-          "<input name='#{name}' type='#{type}' value='#{value}'>"
+          "<input name='#{name}' type='#{type}' value='#{value}'#{input_class}>"
       when 'text'
         textarea(name, value: value, **params)
       end
@@ -48,7 +49,7 @@ module HexletCode
     end
 
     def submit(value = 'Save')
-      "<input name='commit' type='submit' value='#{value}'>"
+      "<input type='submit' value='#{value}'>"
     end
   end
 end

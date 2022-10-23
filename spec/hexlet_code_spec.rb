@@ -40,8 +40,8 @@ describe 'HexletCode' do
             "<textarea name='job' cols='20' rows='40'>hexlet</textarea>"\
             "<label for='job'>hexlet</label>"\
             "<textarea name='job' cols='50' rows='50'>hexlet</textarea>"\
-            "<input name='commit' type='submit' value=''>"\
-            "<input name='commit' type='submit' value='Wow'>"\
+            "<input type='submit' value='Save'>"\
+            "<input type='submit' value='Wow'>"\
           '</form>'
         )
       end
