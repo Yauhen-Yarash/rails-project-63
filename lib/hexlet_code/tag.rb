@@ -38,15 +38,15 @@ module HexletCode
       case as.to_s
       when 'input'
         input_class = params[:class] ? " class='#{params[:class]}'" : ''
-        label(for_field: name, value: value) +
+        label(for_field: name, value:) +
           "<input name='#{name}' type='#{type}' value='#{value}'#{input_class}>"
       when 'text'
-        textarea(name, value: value, **params)
+        textarea(name, value:, **params)
       end
     end
 
     def textarea(name = nil, cols: 20, rows: 40, value: nil)
-      label(for_field: name, value: value) +
+      label(for_field: name, value:) +
         "<textarea name='#{name}' cols='#{cols}' rows='#{rows}'>#{block_given? ? yield : value}</textarea>"
     end
 

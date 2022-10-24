@@ -34,15 +34,15 @@ describe 'HexletCode' do
         end
 
         expect(result).to eql(
-          "<form action='#' method='post'>"\
-            "<label for='name'>rob</label>"\
-            "<input name='name' type='text' value='rob'>"\
-            "<label for='job'>hexlet</label>"\
-            "<textarea name='job' cols='20' rows='40'>hexlet</textarea>"\
-            "<label for='job'>hexlet</label>"\
-            "<textarea name='job' cols='50' rows='50'>hexlet</textarea>"\
-            "<input type='submit' value='Save'>"\
-            "<input type='submit' value='Wow'>"\
+          "<form action='#' method='post'>" \
+          "<label for='name'>rob</label>" \
+          "<input name='name' type='text' value='rob'>" \
+          "<label for='job'>hexlet</label>" \
+          "<textarea name='job' cols='20' rows='40'>hexlet</textarea>" \
+          "<label for='job'>hexlet</label>" \
+          "<textarea name='job' cols='50' rows='50'>hexlet</textarea>" \
+          "<input type='submit' value='Save'>" \
+          "<input type='submit' value='Wow'>" \
           '</form>'
         )
       end
